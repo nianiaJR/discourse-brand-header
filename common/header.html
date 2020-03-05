@@ -96,24 +96,8 @@
     },
   
     iconLinks() {
-      let icons = settings.icons;
-
-      if (icons) {
-        icons = icons.split("|").map(l => {
-          const values = l.split(",");
-          return this.attach('link', {
-              icon: values[0].trim(),
-              href: values[1].trim(),
-              omitSpan: true,
-              attributes: {
-                target: (values[2] || '').trim()
-              }
-          });
-        });
-      } else {
-        icons = [];
-      }
-      icons.push(this.attach('link', {
+      const icons = settings.icons;
+      const iconsArr = [this.attach('link', {
         href: "https://github.com/vesoft-inc/nebula",
         rawLabel: 'Star',
         attributes: {
@@ -123,9 +107,25 @@
           'data-size': "large",
           'aria-label': "Star vesoft-inc/nebula on Github"
         }
-      }))
+      })];
 
-      return icons;
+
+
+      if (icons) {
+        icons.split("|").forEach(l => {
+          const values = l.split(",");
+          iconsArr.push(this.attach('link', {
+              icon: values[0].trim(),
+              href: values[1].trim(),
+              omitSpan: true,
+              attributes: {
+                target: (values[2] || '').trim()
+              }
+          }));
+        });
+      }
+
+      return iconsArr;
     },
   
     html(attrs, state) {
