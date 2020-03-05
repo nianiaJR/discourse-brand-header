@@ -29,7 +29,17 @@
     tagName: 'div.panel.clearfix',
   
     html(attrs) {
-      return attrs.contents();
+      return [this.attrs('link', {
+        href: "https://github.com/vesoft-inc/nebula",
+        rawLabel: 'Star',
+        attributes: {
+          class: 'github-button',
+          'data-icon': 'octicon-star',
+          'data-show-count': "true",
+          'data-size': "large",
+          'aria-label': "Star vesoft-inc/nebula on Github"
+        }
+      }), attrs.contents()];
     },
   });
   
