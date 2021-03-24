@@ -2,12 +2,13 @@
 
 .b-header {
   width: 100%;
-  background-color: $tertiary;
+  background-color: #fafafa;
   height: 48px;
   margin-bottom: 0;
 
   .contents {
     margin: 8px 0;
+    text-align: center;
   }
 
   .title {
@@ -59,8 +60,6 @@
   }
 
   .panel {
-    float: right;
-    position: relative;
     .rtl & {
       float: left;
     }
@@ -112,7 +111,7 @@
 }
 
 .ember-application .d-header {
-    margin-top: 48px;
+    margin-top: 0px;
 }
 
 .docked .ember-application .d-header {
